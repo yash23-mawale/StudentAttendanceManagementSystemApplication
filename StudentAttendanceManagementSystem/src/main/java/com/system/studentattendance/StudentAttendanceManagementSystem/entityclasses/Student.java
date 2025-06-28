@@ -101,5 +101,11 @@ public class Student {
 	public void setAistatus(String aistatus) {
 		this.aistatus = aistatus;
 	}
+
+	@Override
+	public String toString() {
+		return "Student [frn=" + frn + ", sname=" + sname + ", semail=" + semail + ", smobno=" + smobno + ", pmobno="
+				+ pmobno + ", batch_id=" + batch_id + ", aistatus=" + aistatus + "]";
+	}
 	
 }
