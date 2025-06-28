@@ -1,28 +1,49 @@
 package com.system.studentattendance.StudentAttendanceManagementSystem.entityclasses;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="student")
 public class Student {
 
+	@Id
+	@Column(name="frn")
 	private int frn;
-	private String name;
-	private String email;
-	private String mobno;
+	
+	@Column(name="sname")
+	private String sname;
+	
+	@Column(name="semail")
+	private String semail;
+	
+	@Column(name="smobno")
+	private String smobno;
+	
+	@Column(name="pmobno")
 	private String pmobno;
+	
+	@Column(name="batch_id")
 	private int batch_id;
-	private String status;
+	
+	@Column(name="aistatus")
+	private String aistatus;
 	
 	public Student() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Student(int frn, String name, String email, String mobno, String pmobno, int batch_id, String status) {
+	public Student(int frn, String sname, String semail, String smobno, String pmobno, int batch_id, String aistatus) {
 		super();
 		this.frn = frn;
-		this.name = name;
-		this.email = email;
-		this.mobno = mobno;
+		this.sname = sname;
+		this.semail = semail;
+		this.smobno = smobno;
 		this.pmobno = pmobno;
 		this.batch_id = batch_id;
-		this.status = status;
+		this.aistatus = aistatus;
 	}
 
 	public int getFrn() {
@@ -33,28 +54,28 @@ public class Student {
 		this.frn = frn;
 	}
 
-	public String getName() {
-		return name;
+	public String getSname() {
+		return sname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setSname(String sname) {
+		this.sname = sname;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getSemail() {
+		return semail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setSemail(String semail) {
+		this.semail = semail;
 	}
 
-	public String getMobno() {
-		return mobno;
+	public String getSmobno() {
+		return smobno;
 	}
 
-	public void setMobno(String mobno) {
-		this.mobno = mobno;
+	public void setSmobno(String smobno) {
+		this.smobno = smobno;
 	}
 
 	public String getPmobno() {
@@ -73,18 +94,18 @@ public class Student {
 		this.batch_id = batch_id;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getAistatus() {
+		return aistatus;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setAistatus(String aistatus) {
+		this.aistatus = aistatus;
 	}
 
 	@Override
 	public String toString() {
-		return "Student [frn=" + frn + ", name=" + name + ", email=" + email + ", mobno=" + mobno + ", pmobno=" + pmobno
-				+ ", batch_id=" + batch_id + ", status=" + status + "]";
+		return "Student [frn=" + frn + ", sname=" + sname + ", semail=" + semail + ", smobno=" + smobno + ", pmobno="
+				+ pmobno + ", batch_id=" + batch_id + ", aistatus=" + aistatus + "]";
 	}
 	
 }
