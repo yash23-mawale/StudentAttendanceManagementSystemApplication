@@ -1,8 +1,13 @@
 package com.system.studentattendance.StudentAttendanceManagementSystem.entityclasses;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,25 +30,31 @@ public class Student {
 	@Column(name="pmobno")
 	private String pmobno;
 	
-	@Column(name="batch_id")
-	private int batch_id;
-	
 	@Column(name="aistatus")
 	private String aistatus;
+	
+	@ManyToOne
+	@JoinColumn(name="batchid")
+	private Batch batch;
+	
+	@OneToMany(mappedBy = "student")
+	private List<Attendance> attendanceList;
 	
 	public Student() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Student(int frn, String sname, String semail, String smobno, String pmobno, int batch_id, String aistatus) {
+	public Student(int frn, String sname, String semail, String smobno, String pmobno, String aistatus, Batch batch,
+			List<Attendance> attendanceList) {
 		super();
 		this.frn = frn;
 		this.sname = sname;
 		this.semail = semail;
 		this.smobno = smobno;
 		this.pmobno = pmobno;
-		this.batch_id = batch_id;
 		this.aistatus = aistatus;
+		this.batch = batch;
+		this.attendanceList = attendanceList;
 	}
 
 	public int getFrn() {
@@ -86,14 +97,6 @@ public class Student {
 		this.pmobno = pmobno;
 	}
 
-	public int getBatch_id() {
-		return batch_id;
-	}
-
-	public void setBatch_id(int batch_id) {
-		this.batch_id = batch_id;
-	}
-
 	public String getAistatus() {
 		return aistatus;
 	}
@@ -102,10 +105,27 @@ public class Student {
 		this.aistatus = aistatus;
 	}
 
+	public Batch getBatch() {
+		return batch;
+	}
+
+	public void setBatch(Batch batch) {
+		this.batch = batch;
+	}
+
+	public List<Attendance> getAttendanceList() {
+		return attendanceList;
+	}
+
+	public void setAttendanceList(List<Attendance> attendanceList) {
+		this.attendanceList = attendanceList;
+	}
+
 	@Override
 	public String toString() {
 		return "Student [frn=" + frn + ", sname=" + sname + ", semail=" + semail + ", smobno=" + smobno + ", pmobno="
-				+ pmobno + ", batch_id=" + batch_id + ", aistatus=" + aistatus + "]";
+				+ pmobno + ", aistatus=" + aistatus + ", batch=" + batch + ", attendanceList=" + attendanceList + "]";
 	}
+	
 	
 }
